@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <radialGradient id="blueGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="torusGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#93c5fd"/>
+      <stop offset="25%" stop-color="#60a5fa"/>
+      <stop offset="60%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="torusSpec" x1="20%" y1="10%" x2="70%" y2="80%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#1e3a8a" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <!-- Ambient soft glow -->
+  <circle cx="200" cy="210" r="150" fill="url(#blueGlow)" />
+  <!-- 3D Torus Shape -->
+  <g filter="url(#softShadow)" transform="rotate(-15 200 200)">
+    <!-- Outer ring body -->
+    <path d="M 200 60 
+             C 285 60, 340 115, 340 200 
+             C 340 285, 285 340, 200 340 
+             C 115 340, 60 285, 60 200 
+             C 60 115, 115 60, 200 60 Z
+             M 200 130 
+             C 155 130, 130 160, 130 200 
+             C 130 240, 155 270, 200 270 
+             C 245 270, 270 240, 270 200 
+             C 270 160, 245 130, 200 130 Z" 
+          fill="url(#torusGrad)" 
+          fill-rule="evenodd" />
+    <!-- 3D Specular Sheen & Depth Highlight -->
+    <path d="M 190 70 
+             C 260 70, 325 120, 325 190 
+             C 305 150, 255 135, 195 135 
+             C 145 135, 105 165, 80 195 
+             C 90 125, 135 70, 190 70 Z" 
+          fill="url(#torusSpec)" />
+    <!-- Secondary soft rim light -->
+    <ellipse cx="200" cy="85" rx="60" ry="18" fill="#ffffff" opacity="0.65" transform="rotate(-5 200 85)" />
+    <!-- Inner hole cast shadow -->
+    <ellipse cx="195" cy="220" rx="55" ry="32" fill="#172554" opacity="0.45" />
+  </g>
+</svg>
